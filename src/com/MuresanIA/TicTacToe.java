@@ -1,5 +1,6 @@
 package com.MuresanIA;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -15,9 +16,13 @@ public class TicTacToe {
 
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter your placement (1-9):");
-        int pos = scan.nextInt();
+        int playerPos = scan.nextInt();
 
-        System.out.println(pos);
+        placePiece(gameBoard, playerPos, "player");
+
+        Random rand = new Random();
+        int cpuPos = rand.nextInt(9) + 1;
+        placePiece(gameBoard, cpuPos, "cpu");
 
         printGameBoard(gameBoard);
 
